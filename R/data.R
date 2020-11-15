@@ -32,3 +32,39 @@
 #'  MethylationObservation
 #' }
 "MethylationObservation"
+
+#' RNAseq gene expression data for patients before Bariatric surgery
+#'
+#' @source INSERM, Laurence Tiret (2019).
+#'
+#' @format{
+#' RNAseq gene expression:
+#' \describe{
+#' \item{Gene_Name}{The name of the gene.}
+#' \item{Gene_Expression}{The amount of expression of the gene shown.}
+#' }
+#' }
+#'
+#' @examples
+#' \dontrun{
+#'  BeforeBariatricSurgery
+#' }
+"BeforeBariatricSurgery"
+
+#' RNAseq gene expression data for patients after Bariatric surgery
+#'
+#' @source INSERM, Laurence Tiret (2019).
+#'
+#' @format{
+#' RNAseq gene expression:
+#' \describe{
+#' \item{Gene_Name}{The name of the gene.}
+#' \item{Gene_Expression}{The amount of expression of the gene shown.}
+#' }
+#' }
+#'
+#' @examples
+#' \dontrun{
+#'  AfterBariatricSurgery
+#' }
+"AfterBariatricSurgery"

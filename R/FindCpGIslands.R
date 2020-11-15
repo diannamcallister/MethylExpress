@@ -113,14 +113,3 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
   returning <- data.frame("CGRatio"=CGRatio, "OERatio"=OERatio)
   return(returning)
 }
-
-highlight <- function(fileName, nucleotides, highlighting) {
-  if (!highlighting) {
-    regText <- paste("<span style='float: left'>", nucleotides, "</span>")
-    write(regText, fileName, append=TRUE)
-  }
-  if (highlighting) {
-    regText <- paste("<span style='background-color: yellow; float: left'>", nucleotides, "</span>")
-    write(regText, fileName, append=TRUE)
-  }
-}
