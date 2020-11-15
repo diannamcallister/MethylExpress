@@ -2,7 +2,7 @@
 % Please edit documentation in R/FindMethylatedCytosines.R
 \name{FindMethylatedCytosines}
 \alias{FindMethylatedCytosines}
-\title{Highlighting all Nucleotides Except Methylated Cytosines}
+\title{Highlighting all Methylated Cytosines}
 \usage{
 FindMethylatedCytosines(orig, bisulfite)
 }
@@ -12,11 +12,11 @@ FindMethylatedCytosines(orig, bisulfite)
 \item{bisulfite}{A string of nucleotides of the DNA sequence after bisulfite conversion}
 }
 \value{
-A visual output of highlighted nucleotides that are not methylated.
+A visual output of all nucleotides given, where the methylated cytosines
+are highlighted.
 }
 \description{
-A function that returns a visual output highlighting all nucleotides except
-the methylated cytosines.
+A function that returns a visual output highlighting all methylated cytosines.
 }
 \examples{
 \dontrun{

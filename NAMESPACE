@@ -2,3 +2,4 @@
 
 export(FindCpGIslands)
 export(FindMethylatedCytosines)
+import(stringr)
