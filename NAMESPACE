@@ -3,4 +3,5 @@
 export(FindCpGIslands)
 export(FindDifferencesInDNASequence)
 export(FindMethylatedCytosines)
+import(rstudioapi)
 import(stringr)

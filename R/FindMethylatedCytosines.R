@@ -19,6 +19,7 @@
 #' Reference 1 - DNA source
 #'
 #' @export
+#' @import rstudioapi
 
 FindMethylatedCytosines <- function(orig, bisulfite) {
 
@@ -36,7 +37,8 @@ FindMethylatedCytosines <- function(orig, bisulfite) {
   }
 
   toHighlight <- findMatchingSections(orig, bisulfite)
-
+  rstudioapi::viewer(toHighlight)
+  return(readLines(toHighlight))
 }
 
 findMatchingSections <- function(orig, bisulfite) {
@@ -56,18 +58,16 @@ findMatchingSections <- function(orig, bisulfite) {
         highlight(htmlFile, substr(orig, start, i-1), FALSE)
         highlight(htmlFile, substr(orig, i, i), TRUE)
         start <- i + 1
+      } else {
+        highlight(htmlFile, substr(orig, i, i), TRUE)
+        start <- i + 1
       }
     }
   }
-  if (identical(orig_char, "c") && identical(bisulfite_char, "c")) {
-    # the last nucleotide in the string is methylated!
-    highlight(htmlFile, substr(orig, start, i), TRUE)
-  } else {
-    # the last nucleotide in the string is not methylated - do not highlight
+  if (!identical(bisulfite_char, "c")) {
+    # the last nucleotide in the string is not methylated
     highlight(htmlFile, substr(orig, start, i), FALSE)
   }
-  rstudioapi::viewer(htmlFile)
-
-  readLines(htmlFile)
+  return(htmlFile)
 }
 
