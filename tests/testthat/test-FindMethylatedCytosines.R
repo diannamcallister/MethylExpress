@@ -1,4 +1,5 @@
 library(MethylExpress)
+
 test_that("input of number for orig param throws error", {
   expect_error(FindMethylatedCytosines(1, "aacgttt"))
 })

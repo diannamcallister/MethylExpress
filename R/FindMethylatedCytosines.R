@@ -47,7 +47,7 @@ findMatchingSections <- function(orig, bisulfite) {
   dir.create(dir)
   htmlFile <- file.path(dir, "index.html")
   matching <- c()
-  start <- 0
+  start <- 1
   numChar <- nchar(orig)
   for (i in 1:numChar) {
     orig_char = substr(orig, i, i)

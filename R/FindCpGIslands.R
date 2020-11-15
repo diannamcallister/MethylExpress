@@ -28,15 +28,23 @@ FindCpGIslands <- function(nucleotides) {
     stop("THIS IS NOT VALID INPUT. REQUIRES A STRING TO BE GIVEN")
   }
 
-  numIslands <- countCpGIslands(nucleotides)
-  return(numIslands)
+  islands <- countCpGIslands(nucleotides)
+
+  rstudioapi::viewer(islands$file)
+  return(islands$numIslands)
 }
 
 countCpGIslands <- function(nucleotides) {
+
+  dir <- tempfile()
+  dir.create(dir)
+  htmlFile <- file.path(dir, "index.html")
+
   # check that the length of the DNA strand is >= 200 strands. If not, there
   #   is no way that there is any CpG islands
   if (nchar(nucleotides) < 200){
-    return(list("numIslands"=0, "CpGIslands"=vector()))
+    highlight(htmlFile, nucleotides, FALSE)
+    return(list("file"=htmlFile, "numIslands"=0))
   }
 
   # now we can check for CpG islands
@@ -44,9 +52,6 @@ countCpGIslands <- function(nucleotides) {
   # 1. the number of CGs must be > 50% of the part of DNA being looked at
   # 2. the observed-to-expected ration must be > 60%
   #setup temp file to save the html changes in (locally)
-  dir <- tempfile()
-  dir.create(dir)
-  htmlFile <- file.path(dir, "index.html")
   nucleotides <- tolower(nucleotides)
   start = 1
   end = 200
@@ -89,11 +94,12 @@ countCpGIslands <- function(nucleotides) {
   if (inCpGIsland){
     # meaning at the length right before end, there was a CpG island
     highlight(htmlFile, substr(nucleotides, start, end-1), TRUE)
-
     curIsland <- curIsland + 1
+  } else {
+    highlight(htmlFile, substr(nucleotides, start, end-1), FALSE)
   }
-  rstudioapi::viewer(htmlFile)
-  return(curIsland-1)
+  returning <- list("file"=htmlFile, "numIslands"=curIsland-1)
+  return(returning)
 }
 
 observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
