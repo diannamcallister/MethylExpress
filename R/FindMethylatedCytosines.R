@@ -53,23 +53,19 @@ findMatchingSections <- function(orig, bisulfite) {
     if ((identical(orig_char, "c")) && (identical(bisulfite_char, "c"))) {
       # this means this nucleotide is methylated!
       if (!identical(substr(orig, start, i-1), "")){
-
-        highlightCytosines(htmlFile, substr(orig, start, i-1))
+        highlight(htmlFile, substr(orig, start, i-1), FALSE)
+        highlight(htmlFile, substr(orig, i, i), TRUE)
         start <- i + 1
       }
     }
   }
-  if (!identical(orig_char, "c") || !identical(bisulfite_char, "c")) {
-    highlightCytosines(htmlFile, substr(orig, start, i), endOfNuc = TRUE)
+  if (identical(orig_char, "c") && identical(bisulfite_char, "c")) {
+    # the last nucleotide in the string is methylated!
+    highlight(htmlFile, substr(orig, start, i), TRUE)
+  } else {
+    # the last nucleotide in the string is not methylated - do not highlight
+    highlight(htmlFile, substr(orig, start, i), FALSE)
   }
   rstudioapi::viewer(htmlFile)
 }
 
-highlightCytosines <- function(fileName, noChangeNuc, endOfNuc=FALSE) {
-  regText <- paste("<span style='float: left'>", noChangeNuc, "</span>")
-  write(regText, fileName, append=TRUE)
-  if (!endOfNuc) {
-    methylatedC <- "<span style='background-color: yellow; float: left'>c</span>"
-    write(methylatedC, fileName, append=TRUE)
-  }
-}
