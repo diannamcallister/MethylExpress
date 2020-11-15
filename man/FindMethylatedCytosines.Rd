@@ -12,7 +12,8 @@ FindMethylatedCytosines(orig, bisulfite)
 \item{bisulfite}{A string of nucleotides of the DNA sequence after bisulfite conversion}
 }
 \value{
-A visual output of all nucleotides given, where the methylated cytosines
+The html of highlighted methylated nucleotides, as well as a visual
+output of all nucleotides given, where the methylated cytosines
 are highlighted.
 }
 \description{
@@ -26,5 +27,4 @@ FindMethylatedCytosines(orig, bisulfite)
 }
 \references{
 Reference 1 - DNA source
-Reference 2 - highlight package
 }

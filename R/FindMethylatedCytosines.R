@@ -5,7 +5,8 @@
 #' @param orig A string of nucleotides of the original DNA sequence with no modifications
 #' @param bisulfite A string of nucleotides of the DNA sequence after bisulfite conversion
 #'
-#' @returns A visual output of all nucleotides given, where the methylated cytosines
+#' @returns The html of highlighted methylated nucleotides, as well as a visual
+#'    output of all nucleotides given, where the methylated cytosines
 #'    are highlighted.
 #'
 #' @examples
@@ -16,7 +17,6 @@
 #' @references
 #'
 #' Reference 1 - DNA source
-#' Reference 2 - highlight package
 #'
 #' @export
 
@@ -67,5 +67,7 @@ findMatchingSections <- function(orig, bisulfite) {
     highlight(htmlFile, substr(orig, start, i), FALSE)
   }
   rstudioapi::viewer(htmlFile)
+
+  readLines(htmlFile)
 }
 

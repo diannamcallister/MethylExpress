@@ -61,7 +61,7 @@ countCpGIslands <- function(nucleotides) {
 
     constraints <- observedAndExpected(numC, numG, numCpG, nchar(cur_nuc))
     if (constraints$CGRatio >= 0.5 && constraints$OERatio >= 0.6){
-      # n a CpG island - check if there are more nucleotides part of the
+      # in a CpG island - check if there are more nucleotides part of the
       #   CpG island
       inCpGIsland <- TRUE
       end <- end + 1
@@ -73,7 +73,7 @@ countCpGIslands <- function(nucleotides) {
         highlight(htmlFile, substr(nucleotides, start, end-1), TRUE)
         curIsland <- curIsland + 1
         # time to look for a brand new CpG island - shift reading frame over
-        # by 200 nucleotides
+        #   by 200 nucleotides
         start <- end
         end <- end + 200
         inCpGIsland <- FALSE
