@@ -14,7 +14,7 @@ Two DNA sequences:
 }
 }
 \source{
-fake source for now
+University of Georgia, Hunt BG, Rehan S (2018).
 }
 \usage{
 MethylationObservation

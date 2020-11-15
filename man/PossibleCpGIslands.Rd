@@ -8,7 +8,7 @@
 a string of lowercase characters that only include 'g', 'c', 't', 'a'
 }
 \source{
-fake source for now
+Manually created as test / fabricated data
 }
 \usage{
 PossibleCpGIslands

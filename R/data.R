@@ -2,7 +2,7 @@
 #'
 #' A string of nucleotides that will be used to check for CpGIslands
 #'
-#' @source fake source for now
+#' @source Manually created as test / fabricated data
 #'
 #' @format a string of lowercase characters that only include 'g', 'c', 't', 'a'
 #'
@@ -17,7 +17,7 @@
 #' Two DNA sequences. One is the original sequence, the other is the sequence
 #'     after bisulfite conversion
 #'
-#' @source fake source for now
+#' @source University of Georgia, Hunt BG, Rehan S (2018).
 #'
 #' @format{
 #' Two DNA sequences:
