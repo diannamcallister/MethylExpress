@@ -115,9 +115,8 @@ The package tree structure is provided below:
     |- MethylationObservation.rda
     |- PossibleCpGIslands.rda
   |- inst
-    CITATION
     |- extdata
-      |- SILVA_A_A1.png
+      |- MethylExpressOverview.png
   |- man
     |- AfterBariatricSurgery.Rd
     |- BeforeBariatricSurgery.Rd
@@ -149,6 +148,9 @@ The package tree structure is provided below:
     |- test-FindDifferencesInDNASequence.R
     |- test-FindMethylatedCytosines.R
 ```
+
+An overview of the package is illustrated below:
+![](./inst/extdata/MethylExpressOverview.png)
 
 ## Contributions
 
