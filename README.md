@@ -32,24 +32,7 @@ To download the package:
 
 ``` r
 require("devtools")
-#> Loading required package: devtools
-#> Warning: package 'devtools' was built under R version 3.6.2
-#> Loading required package: usethis
-#> Warning: package 'usethis' was built under R version 3.6.2
 devtools::install_github("diannamcallister/MethylExpress", build_vignettes = TRUE)
-#> Downloading GitHub repo diannamcallister/MethylExpress@HEAD
-#> 
-#>      checking for file ‘/private/var/folders/_j/_h2kbp35331_5msks27h16h40000gn/T/RtmpCyt5Mi/remotes193429932355/diannamcallister-MethylExpress-cf50f97/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/_j/_h2kbp35331_5msks27h16h40000gn/T/RtmpCyt5Mi/remotes193429932355/diannamcallister-MethylExpress-cf50f97/DESCRIPTION’
-#>   ─  preparing ‘MethylExpress’:
-#>      checking DESCRIPTION meta-information ...  ✓  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#> ─  looking to see if a ‘data/datalist’ file should be added
-#>   ─  building ‘MethylExpress_0.1.0.tar.gz’
-#>      
-#> 
-#> Installing package into '/private/var/folders/_j/_h2kbp35331_5msks27h16h40000gn/T/RtmptboyvX/temp_libpathb5623784549b'
-#> (as 'lib' is unspecified)
 library("MethylExpress")
 ```
 
@@ -59,9 +42,6 @@ To run the shinyApp: Under construction
 
 ``` r
 ls("package:MethylExpress")
-#> [1] "FindCpGIslands"               "FindDifferencesInDNASequence"
-#> [3] "FindMethylatedCytosines"      "MethylationObservation"      
-#> [5] "PossibleCpGIslands"
 data(package="MethylExpress")
 ```
 
@@ -118,17 +98,19 @@ for this package:
 
 ``` r
 browseVignettes("MethylExpress")
-#> No vignettes found by browseVignettes("MethylExpress")
 ```
 
 ## Contributions
 
-The author of this package is Dianna McAllister. For the function
-**DifferencesInGeneExpression**, I use the R package *ggplot2* to be
-able to plot the different amounts of gene expression. For the functions
-**FindCpGIslands**, **FindDifferencesInDNASequence**, and
-**FindMethylatedCytosines**, I use *rstudioapi* to be able to display my
-markdown files (with the highlights) in the Rstudio Viewer panel.
+The author of this package is Dianna McAllister.
+
+For the function **DifferencesInGeneExpression**, I use the R package
+*ggplot2* to be able to plot the different amounts of gene expression.
+
+For the functions **FindCpGIslands**, **FindDifferencesInDNASequence**,
+and **FindMethylatedCytosines**, I use *rstudioapi* to be able to
+display my markdown files (with the highlights) in the Rstudio Viewer
+panel.
 
 ## References
 

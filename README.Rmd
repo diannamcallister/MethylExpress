@@ -39,7 +39,7 @@ package into a single package, while also adding more functionality!
 ## Installation
 
 To download the package:
-```{r}
+```{r eval=FALSE}
 require("devtools")
 devtools::install_github("diannamcallister/MethylExpress", build_vignettes = TRUE)
 library("MethylExpress")
@@ -50,7 +50,7 @@ Under construction
 
 ## Overview
 
-```{r}
+```{r eval=FALSE}
 ls("package:MethylExpress")
 data(package="MethylExpress")
 ```
@@ -102,14 +102,16 @@ bisulfite conversion) with the cytosines that are methylated highlighted.
 For more details about the functions, please take a look at the vignette for
 this package:
 
-```{r}
+```{r eval=FALSE}
 browseVignettes("MethylExpress")
 ```
 
 ## Contributions
 The author of this package is Dianna McAllister.
+
 For the function **DifferencesInGeneExpression**, I use the R package 
 *ggplot2* to be able to plot the different amounts of gene expression.
+
 For the functions **FindCpGIslands**, **FindDifferencesInDNASequence**, and
 **FindMethylatedCytosines**, I use *rstudioapi* to be able to display my
 markdown files (with the highlights) in the Rstudio Viewer panel.
