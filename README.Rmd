@@ -106,6 +106,57 @@ this package:
 browseVignettes("MethylExpress")
 ```
 
+The package tree structure is provided below:
+
+``` r
+- MethylExpress
+  |- MethylExpress.Rproj
+  |- DESCRIPTION
+  |- NAMESPACE
+  |- LICENSE
+  |- README
+  |- data
+    |- AfterBariatricSurgery.rda
+    |- BeforeBariatricSurgery.rda
+    |- MethylationObservation.rda
+    |- PossibleCpGIslands.rda
+  |- inst
+    CITATION
+    |- extdata
+      |- SILVA_A_A1.png
+  |- man
+    |- AfterBariatricSurgery.Rd
+    |- BeforeBariatricSurgery.Rd
+    |- countCpGIslands.Rd
+    |- differencesInGeneExpression.Rd
+    |- DNASequenceHighlights.Rd
+    |- findCpGIslands.Rd
+    |- FindDifferenceOfExpression.Rd
+    |- FindDifferencesInDNASequence.Rd
+    |- findMatchingSections.Rd
+    |- FindMethylatedCytosines.Rd
+    |- highlight.Rd
+    |- MethylationObservation.Rd
+    |- observedAndExpected.Rd
+    |- PossibleCpGIslands.Rd
+  |- R
+    |- data.R
+    |- differencesInGeneExpression.R
+    |- findCpGIslands.R
+    |- FindDifferencesInDNASequence.R
+    |- FindMethylatedCytosines.R
+  |- vignettes
+    |- MethylExpressVignette.Rmd
+  |- tests
+    |- testthat.R
+    |- testthat
+    |- test-DifferencesInGeneExpression.R
+    |- test-FindCpGIslands.R
+    |- test-FindDifferencesInDNASequence.R
+    |- test-FindMethylatedCytosines.R
+```
+
+
 ## Contributions
 The author of this package is Dianna McAllister.
 
