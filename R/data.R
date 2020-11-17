@@ -22,8 +22,8 @@
 #' @format{
 #' Two DNA sequences:
 #' \describe{
-#' \item{Original DNA Sequence}{The DNA sequence before any modifications were made.}
-#' \item{Post-Bisulfite Conversion DNA Sequence}{The DNA sequence after bisulfite conversion.}
+#' \item{originalDNA}{The DNA sequence before any modifications were made.}
+#' \item{bisulfite}{The DNA sequence after bisulfite conversion.}
 #' }
 #' }
 #'

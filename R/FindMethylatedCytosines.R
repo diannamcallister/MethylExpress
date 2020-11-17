@@ -25,21 +25,45 @@ FindMethylatedCytosines <- function(orig, bisulfite) {
 
   # make sure that both inputs are strings
   if (!is.character(orig)){
-    stop("THIS IS NOT VALID INPUT. REQUIRES A STRING TO BE GIVEN")
+    stop("This is not valid input; it requires a string to be given.")
   }
   if (!is.character(bisulfite)){
-    stop("THIS IS NOT VALID INPUT. REQUIRES A STRING TO BE GIVEN")
+    stop("This is not valid input; it requires a string to be given.")
   }
 
   # both inputs NEED to have the same length of inputs
   if (nchar(orig) != nchar(bisulfite)) {
-    stop("THIS IS NOT VALID INPUT. REQUIRES EQUAL LENGTHS OF INPUTS")
+    stop("This is not a valid input; it requires a string to be given.")
   }
 
   toHighlight <- findMatchingSections(orig, bisulfite)
   rstudioapi::viewer(toHighlight)
   return(readLines(toHighlight))
 }
+
+#' Generate a markdown file with all methylated cytosines highlighted
+#'
+#' A function that returns a markkdown file of the two input DNA strands, where
+#' each cytosine that was methylated is highlighted
+#'
+#' @param orig A string of nucleotides of the original DNA sequence with no modifications
+#' @param bisulfite A string of nucleotides of the DNA sequence after bisulfite conversion
+#'
+#' @returns The file containing html of highlighted methylated nucleotides, as
+#'    well as a visual output of all nucleotides given, where the methylated
+#'    cytosines are highlighted.
+#'
+#' @examples
+#' \dontrun{
+#' findMatchingSections(orig, bisulfite)
+#' }
+#'
+#' @references
+#'
+#' Reference 1 - DNA source
+#'
+#' @export
+#' @import rstudioapi
 
 findMatchingSections <- function(orig, bisulfite) {
   #setup temp file to save the html changes in (locally)

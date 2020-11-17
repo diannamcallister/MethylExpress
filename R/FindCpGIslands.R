@@ -9,23 +9,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' FindCpGIslands(nucleotides)
+#' findCpGIslands(PossibleCpGIslands)
 #' }
 #'
-#' @references
-#'
-#' Reference 1 - DNA source
-#' Reference 2 - highlight package
 #'
 #' @export
 #' @import stringr
 
-FindCpGIslands <- function(nucleotides) {
+findCpGIslands <- function(nucleotides) {
 
   # this should take in a string - if anything else is given, it returns an
   #   error message
   if (!is.character(nucleotides)){
-    stop("THIS IS NOT VALID INPUT. REQUIRES A STRING TO BE GIVEN")
+    stop("This is not a valid input. A string must be given as the parameter.")
   }
 
   islands <- countCpGIslands(nucleotides)
@@ -33,6 +29,25 @@ FindCpGIslands <- function(nucleotides) {
   rstudioapi::viewer(islands$file)
   return(islands$numIslands)
 }
+
+#' Calculates the number of CpG islands in a DNA strand and creates a markdown file to highlight them
+#'
+#' A function that returns the ratio of CG nucleotides to the amount of all
+#' nucleotides, and the ratio of observed:expected CpG Islands
+#'
+#' @param nucleotides A string of nucleotides in a DNA strand
+#'
+#' @returns The number of CpG islands found and a file that shows where the islands are in the DNA strand
+#' \itemize{
+#'     \item file - A string value for the file where the markdown text can be found
+#'     \item numIslands - An integer value for tthe amount of CpG islands found
+#' }
+#'
+#' @examples
+#' \dontrun{
+#' countCpGIslands(PossibleCpGIslands)
+#' }
+#'
 
 countCpGIslands <- function(nucleotides) {
 
@@ -102,6 +117,28 @@ countCpGIslands <- function(nucleotides) {
   return(returning)
 }
 
+#' Calculate CG ratio and observed:expected ratio for CpG Islands
+#'
+#' A function that returns the ratio of CG nucleotides to the amount of all
+#' nucleotides, and the ratio of observed:expected CpG Islands
+#'
+#' @param numC The number of cytosines in a DNA strand
+#' @param numG The number of guanines in a DNA strand
+#' @param numCpG The number of cytosines followed by a guanine in a DNA strand
+#' @param lenNuc The number of nucleotides in a DNA strand
+#'
+#' @returns A data frame with the CG ratio and observed:expected ratio of CpG Islands
+#' \itemize{
+#'     \item CGRatio - A value for the CG ratio in a DNA strand
+#'     \item OERatio - A value for the observed:expected CpG Island ratio
+#' }
+#'
+#' @examples
+#' \dontrun{
+#' observedAndExpected(numC, numG, numCpG, lenNuc)
+#' }
+#'
+
 observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
 
   # calculate the % of CGs relative to the length of the DNA
@@ -112,4 +149,32 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
   OERatio <- observed / expected
   returning <- data.frame("CGRatio"=CGRatio, "OERatio"=OERatio)
   return(returning)
+}
+
+#' Highlighting parts of text
+#'
+#' A function that returns a visual output highlighting specified letters in
+#' a string.
+#'
+#' @param fileName The name of the file where the markdown will be saved to
+#' @param nucleotides A string of nucleotides of a DNA sequence
+#' @param highlighting A boolean to say if nucleotides will be highlighted in fileName
+#'
+#' @returns A visual output of highlighted letters in a string
+#'
+#' @examples
+#' \dontrun{
+#' highlight(fileName, nucleotides, TRUE)
+#' }
+#'
+
+highlight <- function(fileName, nucleotides, highlighting) {
+  if (!highlighting) {
+    regText <- paste("<span style='float: left'>", nucleotides, "</span>")
+    write(regText, fileName, append=TRUE)
+  }
+  if (highlighting) {
+    regText <- paste("<span style='background-color: yellow; float: left'>", nucleotides, "</span>")
+    write(regText, fileName, append=TRUE)
+  }
 }

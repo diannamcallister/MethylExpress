@@ -22,7 +22,7 @@ nucleotides between two DNA sequences
 }
 \examples{
 \dontrun{
-FindCpGIslands(nucleotides)
+FindDifferencesInDNASequence(BeforeBariatricSurgery, AfterBariatricSurgery)
 }
 
 }
