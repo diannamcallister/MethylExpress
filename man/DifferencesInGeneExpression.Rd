@@ -31,5 +31,6 @@ differencesInGeneExpression(BeforeBariatricSurgery, AfterBariatricSurgery)
 
 }
 \references{
-Reference 1 - DNA source
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
+New York, 2016.
 }

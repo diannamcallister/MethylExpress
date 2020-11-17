@@ -162,6 +162,11 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
 #'
 #' @returns A visual output of highlighted letters in a string
 #'
+#' @references
+#' Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
+#' Safely Access the RStudio API. R package version 0.13.
+#' https://CRAN.R-project.org/package=rstudioapi
+#'
 #' @examples
 #' \dontrun{
 #' highlight(fileName, nucleotides, TRUE)

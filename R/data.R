@@ -27,6 +27,10 @@
 #' }
 #' }
 #'
+#' @references
+#' Hunt, B. G. (2018). GEO Accession viewer. Retrieved November 17, 2020,
+#' from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111611
+#'
 #' @examples
 #' \dontrun{
 #'  MethylationObservation
@@ -45,6 +49,12 @@
 #' }
 #' }
 #'
+#' @references
+#' Poitou C, Perret C, Mathieu F, Truong V et al. Bariatric Surgery Induces
+#' Disruption in Inflammatory Signaling Pathways Mediated by Immune Cells in
+#' Adipose Tissue: A RNA-Seq Study. PLoS One 2015;10(5):e0125718.
+#' PMID: 25938420
+#'
 #' @examples
 #' \dontrun{
 #'  BeforeBariatricSurgery
@@ -62,6 +72,12 @@
 #' \item{Gene_Expression}{The amount of expression of the gene shown.}
 #' }
 #' }
+#'
+#' @references
+#' Poitou C, Perret C, Mathieu F, Truong V et al. Bariatric Surgery Induces
+#' Disruption in Inflammatory Signaling Pathways Mediated by Immune Cells in
+#' Adipose Tissue: A RNA-Seq Study. PLoS One 2015;10(5):e0125718.
+#' PMID: 25938420
 #'
 #' @examples
 #' \dontrun{

@@ -28,4 +28,8 @@ after bisulfite conversion
  MethylationObservation
 }
 }
+\references{
+Hunt, B. G. (2018). GEO Accession viewer. Retrieved November 17, 2020,
+from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111611
+}
 \keyword{datasets}

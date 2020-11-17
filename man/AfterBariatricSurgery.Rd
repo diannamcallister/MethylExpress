@@ -27,4 +27,10 @@ RNAseq gene expression data for patients after Bariatric surgery
  AfterBariatricSurgery
 }
 }
+\references{
+Poitou C, Perret C, Mathieu F, Truong V et al. Bariatric Surgery Induces
+Disruption in Inflammatory Signaling Pathways Mediated by Immune Cells in
+Adipose Tissue: A RNA-Seq Study. PLoS One 2015;10(5):e0125718.
+PMID: 25938420
+}
 \keyword{datasets}

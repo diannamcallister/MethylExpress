@@ -27,5 +27,7 @@ FindDifferencesInDNASequence(BeforeBariatricSurgery, AfterBariatricSurgery)
 
 }
 \references{
-Reference 1 - DNA sources
+Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
+Safely Access the RStudio API. R package version 0.13.
+https://CRAN.R-project.org/package=rstudioapi
 }

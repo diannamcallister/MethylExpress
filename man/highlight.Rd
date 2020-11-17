@@ -26,3 +26,8 @@ highlight(fileName, nucleotides, TRUE)
 }
 
 }
+\references{
+Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
+Safely Access the RStudio API. R package version 0.13.
+https://CRAN.R-project.org/package=rstudioapi
+}
