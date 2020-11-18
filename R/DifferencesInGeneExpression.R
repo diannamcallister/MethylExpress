@@ -45,10 +45,10 @@ differencesInGeneExpression <- function(RNAseq1, RNAseq2, n=1) {
   }
 
   highestExpressionChanges <- FindDifferenceOfExpression(RNAseq1, RNAseq2, n)
-  df <- data.frame("RNAsequence"=rep(c("RNAseq1", "RNAseq2"), each=n),
-             "gene"=rep(highestExpressionChanges$GeneNames,2),
+  df <- data.frame(RNAsequence=rep(c("RNAseq1", "RNAseq2"), each=n),
+             gene=rep(highestExpressionChanges$GeneNames,2),
              expression=highestExpressionChanges$Expressions)
-  ggplot(data=df, aes_string(x='gene', y='expression', fill='RNAsequence')) +
+  ggplot(data=df, aes_string(x="gene", y='expression', fill='RNAsequence')) +
     geom_bar(stat="identity", color="black", position=position_dodge())+
     theme_minimal()
 }
@@ -78,7 +78,7 @@ differencesInGeneExpression <- function(RNAseq1, RNAseq2, n=1) {
 #'
 
 FindDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {
-  GeneNames <- list()
+  GeneNames <- c()
   RNAseq1Expression <- c()
   RNAseq2Expression <- c()
   while (length(GeneNames) < n) {
@@ -91,12 +91,14 @@ FindDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {
       RNAseq1Exp <- RNAseq1[i, 2]
       RNAseq2Exp <- RNAseq2[i, 2]
       if (abs(RNAseq1Exp - RNAseq2Exp) > cur_difference) {
-        cur_largest <- list("gene"=RNAseq1[i, 1],
-                            "expr1"=i, "expr2"=i)
+        #cur_largest <- list("gene"=RNAseq1[i, 1],
+         #                   "expr1"=i, "expr2"=i)
+        cur_largest <- list("gene"=i, "expr1"=i, "expr2"=i)
         cur_difference <- abs(RNAseq1Exp - RNAseq2Exp)
       }
     }
-    GeneNames <- c(GeneNames, as.character(cur_largest$gene))
+    #GeneNames <- c(GeneNames, as.character(cur_largest$gene))
+    GeneNames <- c(GeneNames, as.character(RNAseq1[cur_largest$gene, 1]))
     RNAseq1Expression <- c(RNAseq1Expression, RNAseq1[cur_largest$expr1, 2])
     RNAseq2Expression <- c(RNAseq2Expression, RNAseq2[cur_largest$expr2, 2])
     # remove the largest difference rows from the datasets

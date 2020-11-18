@@ -10,7 +10,7 @@
 ## Description
 
 The purpose of MethylExpress is to allow for visual investigation of
-physical characteristics of methylation of the DNA. Examples of this are
+physical characteristics of methylation of DNA. Examples of this are
 counting the amount of CpG islands that are present in a DNA strand and
 highlighting where they are in the DNA strand, highlighting where
 methylation occurs in a DNA strand, and graphically viewing the
