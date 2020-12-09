@@ -109,9 +109,11 @@ do this, we have the two dataframes *BeforeBariatricSurgery* and
 Then, we will choose to see the top three genes with the largest difference
 in gene expression:
 
-``` {r}
+``` {r eval=FALSE}
 MethylExpress::differencesInGeneExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 3)
 ```
+
+![](./differencesInGeneExpressionExResult.png)
 
 Now, the bar graph displaying the gene expressions for the three genes with 
 the largest difference in count expression before and after are displayed in
@@ -152,7 +154,7 @@ markdown to highlight the CpG islands within the DNA.
 
 First, we will take a look at the parameters that this function uses. This
 function takes in a string which should only include proper nucleotides (ex:
-a, t, c, g). An example of the type of dataframe that could be used for this 
+a, t, c, g). An example of the type of string that could be used for this 
 function can be found within the MethylExpress package, called 
 *PossibleCpGIslands*.
 
@@ -162,16 +164,18 @@ Now, we will perform an example of using this function with a string that
 is already found in the MethylExpress package!
 
 We will be using an artificially made (not true data) string called
-*PossibleCpGIslands*:
+*PossibleCpGIslands* which can be found in the MethylExpress package:
 
 ```{r eval=FALSE}
 MethylExpress::findCpGIslands(PossibleCpGIslands)
 ```
 
-![](./findCpGIslandsExResult.png)
+![](./findCpGIslandsExResult.png){width=90%}
 
-Now, the string from *PossibleCpGIslands* is outputted above, with the CpG
-islands highlighted!
+Now, the string from *PossibleCpGIslands* is outputted above, with
+the CpG islands highlighted! This function also outputs the number of CpG 
+islands found in the input DNA strand - in the example above, there would be
+2 CpG islands!
 
 ### 3. FindDifferences In DNA Sequence
 
@@ -192,6 +196,33 @@ nucleotides in the DNA strand should be highlighted.
 
 #### How to use the function
 
+**Parameter Format / Examples**
+
+First, we will take a look at the parameters that this function uses. This
+function takes in two strings, which should only include proper nucleotides (ex:
+a, t, c, g). Two examples of the type of strings that could be used for this 
+function can be found within the MethylExpress package, called 
+*MethylationObservation$originalDNA* and *MethylationObservation$bisulfite*.
+
+**Example of Using the Function**
+
+Now, we will perform an example of using this function with strings that
+are already found in the MethylExpress package!
+
+We will be comparing strings of nucleotides from a DNA strand before and after
+bisulfite conversion. To do this, we have the two strings
+*MethylationObservation$originalDNA* and *MethylationObservation$bisulfite*
+in the MethylExpress package!
+
+``` {r eval=FALSE}
+MethylExpress::findDifferencesInDNASequence(MethylationObservation$originalDNA, MethylationObservation$bisulfite)
+```
+
+![](./findDifferencesInDNASequenceExResult.png){width=90%}
+
+Now, the strings from *MethylationObservation* are outputted above, with
+the nucleotides that differ between the two highlighted!
+
 ### 4. FindMethylatedCytosines
 
 #### Summary of the function
@@ -202,7 +233,7 @@ nucleotides are methylated or not. This function will output the original DNA
 strand (before bisulfite conversion) with the cytosines that are methylated 
 highlighted.
 
-The format of the input is two strings of nucleotdies that represent two
+The format of the input is two strings of nucleotides that represent two
 DNA strands. One strand should be before bisulfite conversion, and the other
 strand should be after bisulfite conversion.
 
@@ -221,6 +252,36 @@ function, which will display the highlighted DNA strand.
 
 #### How to use the function
 
+**Parameter Format / Examples**
+
+First, we will take a look at the parameters that this function uses. This
+function takes in two strings, which should only include proper nucleotides (ex:
+a, t, c, g). The first string should be nucleotides of a DNA strand as it 
+usually appears (before bisulfite conversion), and the second string should be
+nucleotides of a DNA strand as it appears after bisulfite conversion. Examples
+of the type of strings that could be used for this 
+function can be found within the MethylExpress package, called 
+*MethylationObservation\$originalDNA* and *MethylationObservation\$bisulfite*.
+
+**Example of Using the Function**
+
+Now, we will perform an example of using this function with strings that
+are already found in the MethylExpress package!
+
+We will be comparing strings of nucleotides from a DNA strand before and after
+bisulfite conversion. To do this, we have the two strings
+*MethylationObservation\$originalDNA* and *MethylationObservation\$bisulfite*
+in the MethylExpress package!
+
+```{r eval=FALSE}
+MethylExpress::findMethylatedCytosines(MethylationObservation$originalDNA, MethylationObservation$bisulfite)
+```
+
+![](./findMethylatedCytosinesExResult.png){width=90%}
+
+Now, the string before bisulfite conversion from *MethylationObservation* 
+(*MethylationObservation\$originalDNA*) is outputted above, with
+the cytosines that are methylated highlighted!
 
 ## Package References
 
