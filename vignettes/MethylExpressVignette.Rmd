@@ -81,6 +81,8 @@ graph.
 
 #### How to use the function
 
+**Parameter Format / Examples**
+
 First, we will take a look at the parameters that this function uses. This
 function takes in two dataframes, where the first column is the gene name and
 the second column is the count value for the gene's expression. Two examples
@@ -94,6 +96,8 @@ displayed are those with the largest differences in expression between the two
 dataframes given. So for example, if you chose to use the integer 1, only the
 gene with the largest difference in expression between the two RNA seq count
 expressions.
+
+**Example of Using the Function**
 
 Now, we will perform an example of using this function with dataframes that
 are already found in the MethylExpress package!
@@ -143,6 +147,29 @@ strand. Finally, the *highlight* helper function is used to create html
 markdown to highlight the CpG islands within the DNA.
 
 #### How to use the function
+
+**Parameter Format / Examples**
+
+First, we will take a look at the parameters that this function uses. This
+function takes in a string which should only include proper nucleotides (ex:
+a, t, c, g). An example of the type of dataframe that could be used for this 
+function can be found within the MethylExpress package, called 
+*PossibleCpGIslands*.
+
+**Example of Using the Function**
+
+Now, we will perform an example of using this function with a string that
+is already found in the MethylExpress package!
+
+We will be using an artificially made (not true data) string called
+*PossibleCpGIslands*:
+
+```{r}
+MethylExpress::countCpGIslands(PossibleCpGIslands)
+```
+
+Now, the string from *PossibleCpGIslands* is outputted above, with the CpG
+islands highlighted!
 
 ### 3. FindDifferences In DNA Sequence
 
