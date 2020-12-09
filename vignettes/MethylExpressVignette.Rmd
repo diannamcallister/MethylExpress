@@ -57,7 +57,7 @@ More details about the 4 functions available:
 
 ### 1. DifferencesInGeneExpression
 
-#### What the function does
+#### Summary of the function
 
 **DifferencesInGeneExpression** allows for users to be able to compare two
 different RNAseq data from two different DNA strands (preferably with 
@@ -79,9 +79,46 @@ dataframes. This helper function passes these genes (and their expressions)
 back to the main function, who then graphs the genes expressions in a bar 
 graph.
 
+#### How to use the function
+
+First, we will take a look at the parameters that this function uses. This
+function takes in two dataframes, where the first column is the gene name and
+the second column is the count value for the gene's expression. An example
+of a type of dataframe that could be used for this function can be found 
+within the MethylExpress package, called *BeforeBariatricSurgery*:
+
+``` {r}
+MethylExpress::BeforeBariatricSurgery
+```
+
+This function also takes in an integer value, representing the number of genes
+that want to be displayed in the output bar graph. The genes that will be
+displayed are those with the largest differences in expression between the two
+dataframes given. So for example, if you chose to use the integer 1, only the
+gene with the largest difference in expression between the two RNA seq count
+expressions.
+
+Now, we will perform an example of using this function with dataframes that
+are already found in the MethylExpress package!
+
+We will be comparing gene expression before and after bariatric surgery. To
+do this, we have the two dataframes *BeforeBariatricSurgery* and 
+*AfterBariatricSurgery* in the MethylExpress package!
+
+Then, we will choose to see the top three genes with the largest difference
+in gene expression:
+
+``` {r}
+MethylExpress::differencesInGeneExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 3)
+```
+
+Now, the bar graph displaying the gene expressions for the three genes with 
+the largest difference in count expression before and after are displayed in
+the bar graph above!
+
 ### 2. FindCpGIslands
 
-#### What the function does
+#### Summary of the function
 
 **FindCpGIslands** allows for users to be able to determine how many CpG
 islands are present in their DNA strand, as well as view where the CpG islands
@@ -108,9 +145,11 @@ in the DNA strand, and the observed:expected ratio of CpG islands in the
 strand. Finally, the *highlight* helper function is used to create html
 markdown to highlight the CpG islands within the DNA.
 
+#### How to use the function
+
 ### 3. FindDifferences In DNA Sequence
 
-#### What the function does
+#### Summary of the function
 
 **FindDifferencesInDNASequence** allows for users to be able to determine
 which nucleotides between two strands of DNA are different. This function will
@@ -125,9 +164,11 @@ highlighting the nucleotides that don't match between the two DNA strands as
 well as the *DNASequenceHighlight* method will be used to determine which
 nucleotides in the DNA strand should be highlighted.
 
+#### How to use the function
+
 ### 4. FindMethylatedCytosines
 
-#### What the function does
+#### Summary of the function
 
 **FindMethylatedCytosines** allows for user to compare a DNA sequence 
 before and after bisulfite conversion, and determine which cytosine 
@@ -151,6 +192,8 @@ cytosines are not methylated (have been converted to thymine) and which
 cytosines are methylated. The *highlight* helper function will then highlight
 all cytosines that are methylated, and will pass this information to the main
 function, which will display the highlighted DNA strand.
+
+#### How to use the function
 
 
 ## Package References
