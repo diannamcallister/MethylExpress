@@ -72,30 +72,34 @@ performed at INSERM on overweight adults who had recieved bariatric
 surgery. (GSE66306).This dataset includes the patients RNAseq data after
 the surgery.
 
-There are **4** functions that are able to be accessed by the user:
+There are **5** functions that are able to be accessed by the user:
 
-**1. DifferencesInGeneExpression** allows for users to be able to
+**1. differencesInGeneExpression** allows for users to be able to
 compare two different RNAseq data from two different DNA strands
 (preferably with different methylation) and see the *n* genes with the
 largest difference in expression between the two RNAseq datasets in a
 graph. The user is able to specify *n*, which is the number of genes
 shown in the graphical output.
 
-**2. FindCpGIslands** allows for users to be able to determine how many
+**2. findCpGIslands** allows for users to be able to determine how many
 CpG islands are present in their DNA strand, as well as view where the
 CpG islands are in the DNA strand as this function will output the
 nucleotides of the given strand with the CpG islands highlighted.
 
-**3. FindDifferencesInDNASequence** allows for users to be able to
+**3. findDifferencesInDNASequence** allows for users to be able to
 determine which nucleotides between two strands of DNA are different.
 This function will output the two DNA strands with the nucleotides that
 differ between the strands highlighted.
 
-**4. FindMethylatedCytosines** allows for user to compare a DNA sequence
+**4. findMethylatedCytosines** allows for user to compare a DNA sequence
 before and after bisulfite conversion, and determine which cytosine
 nucleotides are methylated or not. This function will output the
 original DNA strand (before bisulfite conversion) with the cytosines
 that are methylated highlighted.
+
+**5. runMethylExpress** allows for the user to run the shiny app for
+MethylExpress so that they can interact with all of the functionalities
+of the package through a GUI instead of the R commandline.
 
 For more details about the functions, please take a look at the vignette
 for this package:
