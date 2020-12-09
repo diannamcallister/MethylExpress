@@ -44,7 +44,6 @@ findMethylatedCytosines <- function(orig, bisulfite) {
     return(toHighlight)
   } else {
     rstudioapi::viewer(toHighlight)
-    return(readLines(toHighlight))
   }
 }
 

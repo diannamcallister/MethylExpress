@@ -44,7 +44,6 @@ findDifferencesInDNASequence <- function(strand1, strand2) {
     return (file)
   } else {
     rstudioapi::viewer(file)
-    return(readLines(file))
   }
 }
 
