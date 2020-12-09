@@ -83,13 +83,10 @@ graph.
 
 First, we will take a look at the parameters that this function uses. This
 function takes in two dataframes, where the first column is the gene name and
-the second column is the count value for the gene's expression. An example
-of a type of dataframe that could be used for this function can be found 
-within the MethylExpress package, called *BeforeBariatricSurgery*:
-
-``` {r}
-MethylExpress::BeforeBariatricSurgery
-```
+the second column is the count value for the gene's expression. Two examples
+of the type of dataframe that could be used for this function can be found 
+within the MethylExpress package, called *BeforeBariatricSurgery* and
+*AfterBariatricSurgery*.
 
 This function also takes in an integer value, representing the number of genes
 that want to be displayed in the output bar graph. The genes that will be
