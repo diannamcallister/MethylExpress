@@ -5,6 +5,7 @@ date: "`r format(Sys.time(), '%d %b %Y')`"
 output: 
   rmarkdown::html_vignette:
     toc: true
+    toc_depth: 4
     number_sections: false
 vignette: >
   %\VignetteIndexEntry{A tour of TestingPackage}
@@ -24,7 +25,7 @@ library(MethylExpress)
 ```
 
 
-# Summary
+## Summary
 
 **MethylExpress** is an R package developed to allow for visual investigation of physical characteristics of methylation of the DNA, as well as how gene
 expression can differ between DNA strands with different forms of methylation.
@@ -50,13 +51,13 @@ data(package = "MethylExpress")
 
 <br>
 
-# Functions
+## Functions
 
 More details about the 4 functions available:
 
-## 1. DifferencesInGeneExpression
+### 1. DifferencesInGeneExpression
 
-### What the function does
+#### What the function does
 
 **DifferencesInGeneExpression** allows for users to be able to compare two
 different RNAseq data from two different DNA strands (preferably with 
@@ -78,9 +79,9 @@ dataframes. This helper function passes these genes (and their expressions)
 back to the main function, who then graphs the genes expressions in a bar 
 graph.
 
-## 2. FindCpGIslands
+### 2. FindCpGIslands
 
-### What the function does
+#### What the function does
 
 **FindCpGIslands** allows for users to be able to determine how many CpG
 islands are present in their DNA strand, as well as view where the CpG islands
@@ -107,9 +108,9 @@ in the DNA strand, and the observed:expected ratio of CpG islands in the
 strand. Finally, the *highlight* helper function is used to create html
 markdown to highlight the CpG islands within the DNA.
 
-## 3. FindDifferences In DNA Sequence
+### 3. FindDifferences In DNA Sequence
 
-### What the function does
+#### What the function does
 
 **FindDifferencesInDNASequence** allows for users to be able to determine
 which nucleotides between two strands of DNA are different. This function will
@@ -124,9 +125,9 @@ highlighting the nucleotides that don't match between the two DNA strands as
 well as the *DNASequenceHighlight* method will be used to determine which
 nucleotides in the DNA strand should be highlighted.
 
-## 4. FindMethylatedCytosines
+### 4. FindMethylatedCytosines
 
-### What the function does
+#### What the function does
 
 **FindMethylatedCytosines** allows for user to compare a DNA sequence 
 before and after bisulfite conversion, and determine which cytosine 
@@ -152,14 +153,14 @@ all cytosines that are methylated, and will pass this information to the main
 function, which will display the highlighted DNA strand.
 
 
-# Package References
+## Package References
 
 [McAllister, D. (2020) MethylExpress: An R Package For
   BCB410H. Unpublished.](https://github.com/diannamcallister/MethylExpress)
 
 <br>
 
-# Other References
+## Other References
 
 H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
 
