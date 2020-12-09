@@ -36,7 +36,11 @@ devtools::install_github("diannamcallister/MethylExpress", build_vignettes = TRU
 library("MethylExpress")
 ```
 
-To run the shinyApp: Under construction
+To run the shinyApp:
+
+``` r
+MethylExpress::runMethylExpress()
+```
 
 ## Overview
 
@@ -117,6 +121,8 @@ The package tree structure is provided below:
   |- inst
     |- extdata
       |- MethylExpressOverview.png
+    |- shiny-scripts
+      |- app.R
   |- man
     |- AfterBariatricSurgery.Rd
     |- BeforeBariatricSurgery.Rd
@@ -124,10 +130,10 @@ The package tree structure is provided below:
     |- differencesInGeneExpression.Rd
     |- DNASequenceHighlights.Rd
     |- findCpGIslands.Rd
-    |- FindDifferenceOfExpression.Rd
-    |- FindDifferencesInDNASequence.Rd
+    |- findDifferenceOfExpression.Rd
+    |- findDifferencesInDNASequence.Rd
     |- findMatchingSections.Rd
-    |- FindMethylatedCytosines.Rd
+    |- findMethylatedCytosines.Rd
     |- highlight.Rd
     |- MethylationObservation.Rd
     |- observedAndExpected.Rd
@@ -136,8 +142,9 @@ The package tree structure is provided below:
     |- data.R
     |- differencesInGeneExpression.R
     |- findCpGIslands.R
-    |- FindDifferencesInDNASequence.R
-    |- FindMethylatedCytosines.R
+    |- findDifferencesInDNASequence.R
+    |- findMethylatedCytosines.R
+    |- runMethylExpress.R
   |- vignettes
     |- MethylExpressVignette.Rmd
   |- tests
