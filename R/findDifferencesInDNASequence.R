@@ -72,7 +72,7 @@ DNASequenceHighlights <- function(strand1, strand2) {
   htmlFile1 <- file.path(dir, "strand1.html")
   write("<b style='float: left'>Strand 1:</b><br></br>", htmlFile1, append=TRUE)
   htmlFile2 <- file.path(dir, "strand2.html")
-  write("<b style='float: left'>Strand 2:</b><br></br>", htmlFile2, append=TRUE)
+  write("<div style='clear: both'><b><br>Strand 2:</b></div><br>", htmlFile2, append=TRUE)
   start <- 1
   for (i in 1:(nchar(strand1)+1)) {
     strand1Char <- substr(strand1, i, i)
@@ -98,7 +98,7 @@ DNASequenceHighlights <- function(strand1, strand2) {
     highlight(htmlFile2, substr(strand2, start, i), FALSE)
   }
   file2Final <- readLines(htmlFile2)
-  write("<br></br>", htmlFile1, append=TRUE)
+  write("<br><br>", htmlFile1, append=TRUE)
   write(file2Final, htmlFile1, append=TRUE)
 
   return(htmlFile1)

@@ -283,6 +283,14 @@ Now, the string before bisulfite conversion from *MethylationObservation*
 (*MethylationObservation\$originalDNA*) is outputted above, with
 the cytosines that are methylated highlighted!
 
+### 4. FindMethylatedCytosines
+
+#### Summary of the function
+
+**FindMethylatedCytosines** allows
+
+<br>
+
 ## Package References
 
 [McAllister, D. (2020) MethylExpress: An R Package For
