@@ -184,17 +184,17 @@ Hunt, B. G. (2018). GEO Accession viewer. Retrieved November 17, 2020,
 from <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111611>
 
 Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020).
-rstudioapi: Safely Access the RStudio API. R package version 0.13.
+rstudioapi: Safely Access the RStudio API. *R package version 0.13*.
 <https://CRAN.R-project.org/package=rstudioapi>
 
 Poitou C, Perret C, Mathieu F, Truong V et al. Bariatric Surgery Induces
 Disruption in Inflammatory Signaling Pathways Mediated by Immune Cells
-in Adipose Tissue: A RNA-Seq Study. PLoS One 2015;10(5):e0125718. PMID:
-25938420
+in Adipose Tissue: A RNA-Seq Study. *PLoS One* 2015;10(5):e0125718.
+PMID: 25938420
 
 R Core Team (2019). R: A language and environment for statistical
-computing. R Foundation for Statistical Computing, Vienna, Austria. URL
-<https://www.R-project.org/>.
+computing. *R Foundation for Statistical Computing*, Vienna, Austria.
+URL <https://www.R-project.org/>.
 
 ## Acknowledgements
 

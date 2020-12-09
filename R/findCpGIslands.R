@@ -4,10 +4,11 @@
 #' in the DNA strand.
 #'
 #' More details about how the CpG islands are calculated can be found in the
-#' README and the vignette, but a quick overview as to how nucleotides are
+#' the vignette, but a quick overview as to how nucleotides are
 #' considered part of a CpG islands is:
-#' 1. the number of CGs must be > 50% of the part of DNA being looked at
-#' 2. the observed number of CGs - to - expected number of CGs ratio must be > 60%
+#' 1. there must be at least 200 nucleotides in the sequence to observe
+#' 2. the number of CGs must be > 50% of the part of DNA being looked at
+#' 3. the observed number of CGs - to - expected number of CGs ratio must be > 60%
 #'
 #' @param nucleotides A string of nucleotides of a DNA sequence
 #'

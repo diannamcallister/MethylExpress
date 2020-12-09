@@ -300,7 +300,10 @@ To run the shiny app, the command below must be executed:
 MethylExpress::runMethylExpress()
 ```
 
-Once executing this command, then the shiny app should open!
+![](./runMethylExpressExResult.png){width=90%}
+
+Once executing this command, then the shiny app should open up to the page
+that you see above!
 
 <br>
 
