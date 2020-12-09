@@ -15,13 +15,11 @@ DNASequenceHighlights(strand1, strand2)
 The html of the two DNA sequences (and highlight html)
 }
 \description{
-A function that returns a file that includes highlight html to indicate
+A helper function that returns a file that includes highlight html to indicate
 which nucleotides between two strands differ
 }
-\examples{
-\dontrun{
-DNASequenceHighlights(BeforeBariatricSurgery, AfterBariatricSurgery)
-}
-
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function for
+findDifferencesInDNASequence
 }

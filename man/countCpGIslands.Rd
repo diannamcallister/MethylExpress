@@ -18,13 +18,12 @@ The number of CpG islands found and a file that shows where the islands are in t
 }
 }
 \description{
-A function that returns the file who contains markdown of the DNA strand with
-the CpG islands highlighted, as well as the number of CpG islands in the
-DNA strand
+A helper function that returns the file who contains markdown of the DNA
+strand with the CpG islands highlighted, as well as the number of CpG
+islands in the DNA strand
 }
-\examples{
-\dontrun{
-countCpGIslands(PossibleCpGIslands)
-}
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function for
+findCpGIslands
 }

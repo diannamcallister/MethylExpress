@@ -50,18 +50,17 @@ findDifferencesInDNASequence <- function(strand1, strand2) {
 
 #' Generate a markdown file with differing nucleotides highlighted
 #'
-#' A function that returns a file that includes highlight html to indicate
+#' A helper function that returns a file that includes highlight html to indicate
 #' which nucleotides between two strands differ
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function for
+#' findDifferencesInDNASequence
 #'
 #' @param strand1 A string of nucleotides of one DNA sequence
 #' @param strand2 A string of nucleotides of another DNA sequence
 #'
 #' @returns The html of the two DNA sequences (and highlight html)
-#'
-#' @examples
-#' \dontrun{
-#' DNASequenceHighlights(BeforeBariatricSurgery, AfterBariatricSurgery)
-#' }
 #'
 #'
 

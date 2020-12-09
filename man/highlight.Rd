@@ -17,12 +17,10 @@ highlight(fileName, nucleotides, highlighting)
 No return value but adds the markup text to the input file
 }
 \description{
-A function that writes text to a file, while also adding the markup for the
-text to be highlighted if desired
+A helper function that writes text to a file, while also adding the markup
+for the text to be highlighted if desired
 }
-\examples{
-\dontrun{
-highlight(fileName, nucleotides, TRUE)
-}
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function
 }

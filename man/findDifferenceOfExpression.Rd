@@ -26,12 +26,11 @@ each gene in GeneNames
 }
 }
 \description{
-A function that returns n genes with the largest difference in expression
+A helper function that returns n genes with the largest difference in expression
 between two RNAseq datasets
 }
-\examples{
-\dontrun{
-findDifferenceOfExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 1)
-}
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function for
+differencesInGeneExpression
 }

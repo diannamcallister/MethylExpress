@@ -16,6 +16,15 @@ A visual output of highlighted CpG Islands in the DNA sequence
 A function that returns a visual output highlighting all CpG islands found
 in the DNA strand.
 }
+\details{
+More details about how the CpG islands are calculated can be found in the
+README and the vignette, but a quick overview as to how nucleotides are
+considered part of a CpG islands is:
+\enumerate{
+\item the number of CGs must be > 50\% of the part of DNA being looked at
+\item the observed number of CGs - to - expected number of CGs ratio must be > 60\%
+}
+}
 \examples{
 \dontrun{
 findCpGIslands(PossibleCpGIslands)

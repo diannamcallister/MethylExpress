@@ -18,12 +18,11 @@ A file containing the two input DNA strands, where the methylated
 cytosines are highlighted.
 }
 \description{
-A function that returns a markdown file of the two input DNA strands, where
-each cytosine that was methylated is highlighted
+A helper function that returns a markdown file of the two input DNA strands,
+where each cytosine that was methylated is highlighted
 }
-\examples{
-\dontrun{
-findMatchingSections(orig, bisulfite)
-}
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function for
+findMethylatedCytosines
 }

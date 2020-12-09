@@ -54,8 +54,12 @@ differencesInGeneExpression <- function(RNAseq1, RNAseq2, n=1) {
 
 #' Calculate a certain amount of genes with the largest difference in expression.
 #'
-#' A function that returns n genes with the largest difference in expression
+#' A helper function that returns n genes with the largest difference in expression
 #' between two RNAseq datasets
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function for
+#' differencesInGeneExpression
 #'
 #' @param RNAseq1 A dataframe of names of genes and their count values as
 #'     expression quantities from a RNAseq experiment
@@ -72,10 +76,6 @@ differencesInGeneExpression <- function(RNAseq1, RNAseq2, n=1) {
 #'        each gene in GeneNames
 #' }
 #'
-#' @examples
-#' \dontrun{
-#' findDifferenceOfExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 1)
-#' }
 #'
 
 findDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {

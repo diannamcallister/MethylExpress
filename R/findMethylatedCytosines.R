@@ -49,8 +49,12 @@ findMethylatedCytosines <- function(orig, bisulfite) {
 
 #' Generate a markdown file with all methylated cytosines highlighted
 #'
-#' A function that returns a markdown file of the two input DNA strands, where
-#' each cytosine that was methylated is highlighted
+#' A helper function that returns a markdown file of the two input DNA strands,
+#' where each cytosine that was methylated is highlighted
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function for
+#' findMethylatedCytosines
 #'
 #' @param orig A string of nucleotides of the original DNA sequence with no
 #'     modifications, meaning before bisulfite conversion
@@ -60,10 +64,6 @@ findMethylatedCytosines <- function(orig, bisulfite) {
 #' @returns A file containing the two input DNA strands, where the methylated
 #'    cytosines are highlighted.
 #'
-#' @examples
-#' \dontrun{
-#' findMatchingSections(orig, bisulfite)
-#' }
 #'
 
 findMatchingSections <- function(orig, bisulfite) {

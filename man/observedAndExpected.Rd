@@ -23,12 +23,11 @@ A dataframe with the CG ratio and observed:expected ratio of CpG Islands
 }
 }
 \description{
-A function that returns the ratio of CG nucleotides to the amount of all
+A helper function that returns the ratio of CG nucleotides to the amount of all
 nucleotides, and the ratio of observed:expected CpG Islands
 }
-\examples{
-\dontrun{
-observedAndExpected(numC, numG, numCpG, lenNuc)
-}
-
+\details{
+This function is an internal function and therefore cannot be used directly
+when installing this package - it is instead a helper function for
+findCpGIslands
 }

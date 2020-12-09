@@ -3,6 +3,12 @@
 #' A function that returns a visual output highlighting all CpG islands found
 #' in the DNA strand.
 #'
+#' More details about how the CpG islands are calculated can be found in the
+#' README and the vignette, but a quick overview as to how nucleotides are
+#' considered part of a CpG islands is:
+#' 1. the number of CGs must be > 50% of the part of DNA being looked at
+#' 2. the observed number of CGs - to - expected number of CGs ratio must be > 60%
+#'
 #' @param nucleotides A string of nucleotides of a DNA sequence
 #'
 #' @returns A visual output of highlighted CpG Islands in the DNA sequence
@@ -41,9 +47,13 @@ findCpGIslands <- function(nucleotides) {
 #' Calculates the number of CpG islands in a DNA strand and creates a markdown
 #'     file to highlight them
 #'
-#' A function that returns the file who contains markdown of the DNA strand with
-#'    the CpG islands highlighted, as well as the number of CpG islands in the
-#'    DNA strand
+#' A helper function that returns the file who contains markdown of the DNA
+#'     strand with the CpG islands highlighted, as well as the number of CpG
+#'     islands in the DNA strand
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function for
+#' findCpGIslands
 #'
 #' @param nucleotides A string of nucleotides in a DNA strand
 #'
@@ -53,10 +63,6 @@ findCpGIslands <- function(nucleotides) {
 #'     \item numIslands - An integer value for the amount of CpG islands found
 #' }
 #'
-#' @examples
-#' \dontrun{
-#' countCpGIslands(PossibleCpGIslands)
-#' }
 #'
 
 countCpGIslands <- function(nucleotides) {
@@ -129,8 +135,12 @@ countCpGIslands <- function(nucleotides) {
 
 #' Calculate CG ratio and observed:expected ratio for CpG Islands
 #'
-#' A function that returns the ratio of CG nucleotides to the amount of all
+#' A helper function that returns the ratio of CG nucleotides to the amount of all
 #' nucleotides, and the ratio of observed:expected CpG Islands
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function for
+#' findCpGIslands
 #'
 #' @param numC The number of cytosines in a DNA strand
 #' @param numG The number of guanines in a DNA strand
@@ -143,10 +153,6 @@ countCpGIslands <- function(nucleotides) {
 #'     \item OERatio - A value for the observed:expected CpG Island ratio
 #' }
 #'
-#' @examples
-#' \dontrun{
-#' observedAndExpected(numC, numG, numCpG, lenNuc)
-#' }
 #'
 
 observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
@@ -163,8 +169,11 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
 
 #' Highlighting parts of text
 #'
-#' A function that writes text to a file, while also adding the markup for the
-#'    text to be highlighted if desired
+#' A helper function that writes text to a file, while also adding the markup
+#'     for the text to be highlighted if desired
+#'
+#' This function is an internal function and therefore cannot be used directly
+#' when installing this package - it is instead a helper function
 #'
 #' @param fileName The name of the file where the markdown will be saved to
 #' @param nucleotides A string of nucleotides of a DNA sequence
@@ -172,10 +181,6 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
 #'
 #' @returns No return value but adds the markup text to the input file
 #'
-#' @examples
-#' \dontrun{
-#' highlight(fileName, nucleotides, TRUE)
-#' }
 #'
 
 highlight <- function(fileName, nucleotides, highlighting) {
