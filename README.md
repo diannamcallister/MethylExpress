@@ -142,6 +142,7 @@ The package tree structure is provided below:
     |- MethylationObservation.Rd
     |- observedAndExpected.Rd
     |- PossibleCpGIslands.Rd
+    |- runMethylExpress.Rd
   |- R
     |- data.R
     |- differencesInGeneExpression.R
@@ -150,7 +151,12 @@ The package tree structure is provided below:
     |- findMethylatedCytosines.R
     |- runMethylExpress.R
   |- vignettes
+    |- differencesInGeneExpressionExResult.png
+    |- findCpGIslandsExResult.png
+    |- findDifferencesInDNASequenceExResult.png
+    |- findMethylatedCytosinesExResult.png
     |- MethylExpressVignette.Rmd
+    |- runMethylatedExpressExResult.png
   |- tests
     |- testthat.R
     |- testthat
