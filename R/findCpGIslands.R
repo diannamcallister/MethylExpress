@@ -31,7 +31,7 @@ findCpGIslands <- function(nucleotides) {
 
   islands <- countCpGIslands(nucleotides)
   if (shiny::isRunning()){
-    return(islands)
+    return(islands$file)
   } else {
     rstudioapi::viewer(islands$file)
     return(islands$numIslands)
