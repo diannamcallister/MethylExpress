@@ -164,7 +164,9 @@ is already found in the MethylExpress package!
 We will be using an artificially made (not true data) string called
 *PossibleCpGIslands*:
 
-
+```{r}
+MethylExpress::findCpGIslands(PossibleCpGIslands)
+```
 
 Now, the string from *PossibleCpGIslands* is outputted above, with the CpG
 islands highlighted!
