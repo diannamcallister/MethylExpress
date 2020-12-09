@@ -1,15 +1,15 @@
 library(MethylExpress)
 
 test_that("input of number for orig param throws error", {
-  expect_error(FindMethylatedCytosines(1, "aacgttt"))
+  expect_error(findMethylatedCytosines(1, "aacgttt"))
 })
 
 test_that("input of number for bisulfite param throws error", {
-  expect_error(FindMethylatedCytosines("aacg", 1))
+  expect_error(findMethylatedCytosines("aacg", 1))
 })
 
 test_that("parameters have different lengths throws error", {
-  expect_error(FindMethylatedCytosines("aacg", "aacgttt"))
+  expect_error(findMethylatedCytosines("aacg", "aacgttt"))
 })
 
 test_that("no cytosines exist", {

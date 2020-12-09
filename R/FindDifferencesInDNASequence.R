@@ -12,11 +12,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' FindDifferencesInDNASequence(BeforeBariatricSurgery, AfterBariatricSurgery)
+#' findDifferencesInDNASequence(MethylationObservation$originalDNA,
+#'     MethylationObservation$bisulfite)
 #' }
 #'
 #' @references
-#'
 #' Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
 #' Safely Access the RStudio API. R package version 0.13.
 #' https://CRAN.R-project.org/package=rstudioapi
@@ -24,7 +24,7 @@
 #' @export
 #' @import rstudioapi
 
-FindDifferencesInDNASequence <- function(strand1, strand2) {
+findDifferencesInDNASequence <- function(strand1, strand2) {
   # make sure that both inputs are strings
   if (!is.character(strand1)){
     stop("String1 is not a valid input; it is required to be a string.")
@@ -40,8 +40,12 @@ FindDifferencesInDNASequence <- function(strand1, strand2) {
 
   file <- DNASequenceHighlights(strand1, strand2)
 
-  rstudioapi::viewer(file)
-  return(readLines(file))
+  if (shiny::isRunning()) {
+    return (file)
+  } else {
+    rstudioapi::viewer(file)
+    return(readLines(file))
+  }
 }
 
 
@@ -60,9 +64,6 @@ FindDifferencesInDNASequence <- function(strand1, strand2) {
 #' DNASequenceHighlights(BeforeBariatricSurgery, AfterBariatricSurgery)
 #' }
 #'
-#' @references
-#'
-#' Reference 1 - DNA sources
 #'
 
 DNASequenceHighlights <- function(strand1, strand2) {

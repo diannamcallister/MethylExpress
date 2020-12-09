@@ -12,8 +12,13 @@
 #' findCpGIslands(PossibleCpGIslands)
 #' }
 #'
+#' @references
+#' Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
+#' Safely Access the RStudio API. R package version 0.13.
+#' https://CRAN.R-project.org/package=rstudioapi
 #'
 #' @export
+#' @import rstudioapi
 #' @import stringr
 
 findCpGIslands <- function(nucleotides) {
@@ -25,22 +30,27 @@ findCpGIslands <- function(nucleotides) {
   }
 
   islands <- countCpGIslands(nucleotides)
-
-  rstudioapi::viewer(islands$file)
-  return(islands$numIslands)
+  if (shiny::isRunning()){
+    return(islands)
+  } else {
+    rstudioapi::viewer(islands$file)
+    return(islands$numIslands)
+  }
 }
 
-#' Calculates the number of CpG islands in a DNA strand and creates a markdown file to highlight them
+#' Calculates the number of CpG islands in a DNA strand and creates a markdown
+#'     file to highlight them
 #'
-#' A function that returns the ratio of CG nucleotides to the amount of all
-#' nucleotides, and the ratio of observed:expected CpG Islands
+#' A function that returns the file who contains markdown of the DNA strand with
+#'    the CpG islands highlighted, as well as the number of CpG islands in the
+#'    DNA strand
 #'
 #' @param nucleotides A string of nucleotides in a DNA strand
 #'
 #' @returns The number of CpG islands found and a file that shows where the islands are in the DNA strand
 #' \itemize{
 #'     \item file - A string value for the file where the markdown text can be found
-#'     \item numIslands - An integer value for tthe amount of CpG islands found
+#'     \item numIslands - An integer value for the amount of CpG islands found
 #' }
 #'
 #' @examples
@@ -51,6 +61,7 @@ findCpGIslands <- function(nucleotides) {
 
 countCpGIslands <- function(nucleotides) {
 
+  #setup temp file to save the html changes in (locally)
   dir <- tempfile()
   dir.create(dir)
   htmlFile <- file.path(dir, "index.html")
@@ -66,7 +77,6 @@ countCpGIslands <- function(nucleotides) {
   # rules for something to be considered a CpG island:
   # 1. the number of CGs must be > 50% of the part of DNA being looked at
   # 2. the observed-to-expected ration must be > 60%
-  #setup temp file to save the html changes in (locally)
   nucleotides <- tolower(nucleotides)
   start = 1
   end = 200
@@ -127,7 +137,7 @@ countCpGIslands <- function(nucleotides) {
 #' @param numCpG The number of cytosines followed by a guanine in a DNA strand
 #' @param lenNuc The number of nucleotides in a DNA strand
 #'
-#' @returns A data frame with the CG ratio and observed:expected ratio of CpG Islands
+#' @returns A dataframe with the CG ratio and observed:expected ratio of CpG Islands
 #' \itemize{
 #'     \item CGRatio - A value for the CG ratio in a DNA strand
 #'     \item OERatio - A value for the observed:expected CpG Island ratio
@@ -153,19 +163,14 @@ observedAndExpected <- function(numC, numG, numCpG, lenNuc) {
 
 #' Highlighting parts of text
 #'
-#' A function that returns a visual output highlighting specified letters in
-#' a string.
+#' A function that writes text to a file, while also adding the markup for the
+#'    text to be highlighted if desired
 #'
 #' @param fileName The name of the file where the markdown will be saved to
 #' @param nucleotides A string of nucleotides of a DNA sequence
 #' @param highlighting A boolean to say if nucleotides will be highlighted in fileName
 #'
-#' @returns A visual output of highlighted letters in a string
-#'
-#' @references
-#' Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
-#' Safely Access the RStudio API. R package version 0.13.
-#' https://CRAN.R-project.org/package=rstudioapi
+#' @returns No return value but adds the markup text to the input file
 #'
 #' @examples
 #' \dontrun{

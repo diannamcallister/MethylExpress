@@ -1,11 +1,11 @@
 library(MethylExpress)
 
 test_that("input of another type (int) other than string throws an error", {
-  expect_error(FindCpGIslands(1))
+  expect_error(findCpGIslands(1))
 })
 
 test_that("input of another type (vector) other than string throws an error", {
-  expect_error(FindCpGIslands(vector()))
+  expect_error(findCpGIslands(vector()))
 })
 
 test_that("no CpG islands since DNA strand is < 200 nucleotides", {

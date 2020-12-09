@@ -1,15 +1,15 @@
 library(MethylExpress)
 
 test_that("input of number for strand1 param throws error", {
-  expect_error(FindDifferencesInDNASequence(1, "aacgttt"))
+  expect_error(findDifferencesInDNASequence(1, "aacgttt"))
 })
 
 test_that("input of number for strand2 param throws error", {
-  expect_error(FindDifferencesInDNASequence("aacg", 1))
+  expect_error(findDifferencesInDNASequence("aacg", 1))
 })
 
 test_that("parameters have different lengths throws error", {
-  expect_error(FindDifferencesInDNASequence("aacg", "aacgttt"))
+  expect_error(findDifferencesInDNASequence("aacg", "aacgttt"))
 })
 
 test_that("no differences between the two DNA strands - nothing is highlighted", {

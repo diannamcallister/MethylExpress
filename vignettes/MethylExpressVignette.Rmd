@@ -24,7 +24,7 @@ library(MethylExpress)
 ```
 
 
-## Introduction
+## Summary
 
 **MethylExpress** is an R package developed to allow for visual investigation of physical characteristics of methylation of the DNA, as well as how gene
 expression can differ between DNA strands with different forms of methylation.
@@ -50,11 +50,15 @@ data(package = "MethylExpress")
 
 <br>
 
-## Usage
+## Functions
 
 More details about the 4 functions available:
 
-**1. DifferencesInGeneExpression** allows for users to be able to compare two
+### 1. DifferencesInGeneExpression
+
+#### What the function does
+
+**DifferencesInGeneExpression** allows for users to be able to compare two
 different RNAseq data from two different DNA strands (preferably with 
 different methylation) and see the *n* genes with the largest difference in 
 expression between the two RNAseq datasets in a graph. The user is able to 
@@ -74,7 +78,11 @@ dataframes. This helper function passes these genes (and their expressions)
 back to the main function, who then graphs the genes expressions in a bar 
 graph.
 
-**2. FindCpGIslands** allows for users to be able to determine how many CpG
+### 2. FindCpGIslands
+
+#### What the function does
+
+**FindCpGIslands** allows for users to be able to determine how many CpG
 islands are present in their DNA strand, as well as view where the CpG islands
 are in the DNA strand as this function will output the nucleotides of the
 given strand with the CpG islands highlighted.
@@ -99,7 +107,11 @@ in the DNA strand, and the observed:expected ratio of CpG islands in the
 strand. Finally, the *highlight* helper function is used to create html
 markdown to highlight the CpG islands within the DNA.
 
-**3. FindDifferencesInDNASequence** allows for users to be able to determine
+### 3. FindDifferences In DNA Sequence
+
+#### What the function does
+
+**FindDifferencesInDNASequence** allows for users to be able to determine
 which nucleotides between two strands of DNA are different. This function will
 output the two DNA strands with the nucleotides that differ between the strands
 highlighted.
@@ -112,7 +124,11 @@ highlighting the nucleotides that don't match between the two DNA strands as
 well as the *DNASequenceHighlight* method will be used to determine which
 nucleotides in the DNA strand should be highlighted.
 
-**4. FindMethylatedCytosines** allows for user to compare a DNA sequence 
+### 4. FindMethylatedCytosines
+
+#### What the function does
+
+**FindMethylatedCytosines** allows for user to compare a DNA sequence 
 before and after bisulfite conversion, and determine which cytosine 
 nucleotides are methylated or not. This function will output the original DNA 
 strand (before bisulfite conversion) with the cytosines that are methylated 

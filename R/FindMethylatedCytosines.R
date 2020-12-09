@@ -2,20 +2,21 @@
 #'
 #' A function that returns a visual output highlighting all methylated cytosines.
 #'
-#' @param orig A string of nucleotides of the original DNA sequence with no modifications
-#' @param bisulfite A string of nucleotides of the DNA sequence after bisulfite conversion
+#' @param orig A string of nucleotides of the original DNA sequence with no
+#'     modifications, meaning before bisulfite conversion
+#' @param bisulfite A string of nucleotides of the DNA sequence after
+#'     bisulfite conversion
 #'
-#' @returns The html of highlighted methylated nucleotides, as well as a visual
-#'    output of all nucleotides given, where the methylated cytosines
-#'    are highlighted.
+#' @returns A visual output of all nucleotides given, where the methylated
+#'    cytosines are highlighted.
 #'
 #' @examples
 #' \dontrun{
-#' FindMethylatedCytosines(orig, bisulfite)
+#' findMethylatedCytosines(MethylationObservation$originalDNA,
+#'     MethylationObservation$bisulfite)
 #' }
 #'
 #' @references
-#'
 #' Kevin Ushey, JJ Allaire, Hadley Wickham and Gary Ritchie (2020). rstudioapi:
 #' Safely Access the RStudio API. R package version 0.13.
 #' https://CRAN.R-project.org/package=rstudioapi
@@ -23,7 +24,7 @@
 #' @export
 #' @import rstudioapi
 
-FindMethylatedCytosines <- function(orig, bisulfite) {
+findMethylatedCytosines <- function(orig, bisulfite) {
 
   # make sure that both inputs are strings
   if (!is.character(orig)){
@@ -39,20 +40,25 @@ FindMethylatedCytosines <- function(orig, bisulfite) {
   }
 
   toHighlight <- findMatchingSections(orig, bisulfite)
-  rstudioapi::viewer(toHighlight)
-  return(readLines(toHighlight))
+  if (shiny::isRunning()) {
+    return(toHighlight)
+  } else {
+    rstudioapi::viewer(toHighlight)
+    return(readLines(toHighlight))
+  }
 }
 
 #' Generate a markdown file with all methylated cytosines highlighted
 #'
-#' A function that returns a markkdown file of the two input DNA strands, where
+#' A function that returns a markdown file of the two input DNA strands, where
 #' each cytosine that was methylated is highlighted
 #'
-#' @param orig A string of nucleotides of the original DNA sequence with no modifications
-#' @param bisulfite A string of nucleotides of the DNA sequence after bisulfite conversion
+#' @param orig A string of nucleotides of the original DNA sequence with no
+#'     modifications, meaning before bisulfite conversion
+#' @param bisulfite A string of nucleotides of the DNA sequence after bisulfite
+#'     conversion
 #'
-#' @returns The file containing html of highlighted methylated nucleotides, as
-#'    well as a visual output of all nucleotides given, where the methylated
+#' @returns A file containing the two input DNA strands, where the methylated
 #'    cytosines are highlighted.
 #'
 #' @examples
@@ -60,12 +66,6 @@ FindMethylatedCytosines <- function(orig, bisulfite) {
 #' findMatchingSections(orig, bisulfite)
 #' }
 #'
-#' @references
-#'
-#' Reference 1 - DNA source
-#'
-#' @export
-#' @import rstudioapi
 
 findMatchingSections <- function(orig, bisulfite) {
   #setup temp file to save the html changes in (locally)

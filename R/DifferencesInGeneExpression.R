@@ -1,14 +1,14 @@
 #' Bar Graph showing difference in gene expression of n genes
 #'
-#' A function that returns a bar graph showing n genes of greatest difference
-#' between two RNA seq data inputs
+#' A function that returns a bar graph showing gene expression of n genes
+#' with greatest difference of expression between two RNA seq data inputs
 #'
-#' @param RNAseq1 A dataframe of names of genes and their expression quantities
-#'     from a RNAseq experiment
-#' @param RNAseq2 A dataframe of names of genes and their expression quantities
-#'     from a RNAseq experiment
-#' @param n The amount of genes with the highest differences to be displayed in
-#'     in the bar graph. Default value is 1.
+#' @param RNAseq1 A dataframe of names of genes and their count values as
+#'     expression quantities from a RNAseq experiment
+#' @param RNAseq2 A dataframe of names of genes and their count values as
+#'     expression quantities from a RNAseq experiment
+#' @param n The amount of genes with the largest difference in gene expression
+#'     to be displayed in the bar graph. Default value is 1.
 #'
 #' @returns A bar graph indicating the amount of expression for the two RNAseq
 #'     datasets for the n genes of highest differences between the two datasets
@@ -19,7 +19,6 @@
 #' }
 #'
 #' @references
-#'
 #' H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
 #' New York, 2016.
 #'
@@ -44,40 +43,42 @@ differencesInGeneExpression <- function(RNAseq1, RNAseq2, n=1) {
          of genes in the RNAseq data. Please choose a smaller n value.")
   }
 
-  highestExpressionChanges <- FindDifferenceOfExpression(RNAseq1, RNAseq2, n)
+  highestExpressionChanges <- findDifferenceOfExpression(RNAseq1, RNAseq2, n)
   df <- data.frame(RNAsequence=rep(c("RNAseq1", "RNAseq2"), each=n),
              gene=rep(highestExpressionChanges$GeneNames,2),
              expression=highestExpressionChanges$Expressions)
-  ggplot(data=df, aes_string(x="gene", y='expression', fill='RNAsequence')) +
-    geom_bar(stat="identity", color="black", position=position_dodge())+
-    theme_minimal()
+  ggplot2::ggplot(data=df, aes_string(x="gene", y='expression', fill='RNAsequence')) +
+    geom_bar(stat="identity", color="black", position=position_dodge()) +
+    theme_minimal() + ggtitle("Differences In Gene Expression")
 }
 
 #' Calculate a certain amount of genes with the largest difference in expression.
 #'
-#' A function that returns the nth amount of genes with the largest difference
-#' in expression between the two RNAseq results.
+#' A function that returns n genes with the largest difference in expression
+#' between two RNAseq datasets
 #'
-#' @param RNAseq1 A dataframe of names of genes and their expression quantities
-#'     from a RNAseq experiment
-#' @param RNAseq2 A dataframe of names of genes and their expression quantities
-#'     from a RNAseq experiment
-#' @param n The amount of genes with the highest differences to be displayed in
-#'     in the bar graph.
+#' @param RNAseq1 A dataframe of names of genes and their count values as
+#'     expression quantities from a RNAseq experiment
+#' @param RNAseq2 A dataframe of names of genes and their count values as
+#'     expression quantities from a RNAseq experiment
+#' @param n The amount of genes with the largest difference in gene expression
+#'     to be displayed in the bar graph.
 #'
-#' @returns A list with the Gene name and expression of each RNAseq.
+#' @returns A list with gene name and expression of the n genes with largest
+#'     difference in gene expression between the two RNAseq datasets.
 #' \itemize{
 #'     \item GeneNames - The gene names with the highest difference in expression
-#'     \item Expressions - The RNAseq expressions for each gene in GeneNames
+#'     \item Expressions - The RNAseq expression from each RNAseq dataset for
+#'        each gene in GeneNames
 #' }
 #'
 #' @examples
 #' \dontrun{
-#' FindDifferenceOfExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 1)
+#' findDifferenceOfExpression(BeforeBariatricSurgery, AfterBariatricSurgery, 1)
 #' }
 #'
 
-FindDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {
+findDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {
   GeneNames <- c()
   RNAseq1Expression <- c()
   RNAseq2Expression <- c()
@@ -91,13 +92,10 @@ FindDifferenceOfExpression <- function(RNAseq1, RNAseq2, n) {
       RNAseq1Exp <- RNAseq1[i, 2]
       RNAseq2Exp <- RNAseq2[i, 2]
       if (abs(RNAseq1Exp - RNAseq2Exp) > cur_difference) {
-        #cur_largest <- list("gene"=RNAseq1[i, 1],
-         #                   "expr1"=i, "expr2"=i)
         cur_largest <- list("gene"=i, "expr1"=i, "expr2"=i)
         cur_difference <- abs(RNAseq1Exp - RNAseq2Exp)
       }
     }
-    #GeneNames <- c(GeneNames, as.character(cur_largest$gene))
     GeneNames <- c(GeneNames, as.character(RNAseq1[cur_largest$gene, 1]))
     RNAseq1Expression <- c(RNAseq1Expression, RNAseq1[cur_largest$expr1, 2])
     RNAseq2Expression <- c(RNAseq2Expression, RNAseq2[cur_largest$expr2, 2])
