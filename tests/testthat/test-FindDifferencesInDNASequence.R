@@ -91,4 +91,3 @@ test_that("multiple nucleotides are different b/w strands (and is highlighted)
   file <- DNASequenceHighlights("aaccaaacccagccaga", "aactaaacccagttaga")
   expect_identical(readLines(file), expResult)
 })
->>>>>>> Stashed changes
